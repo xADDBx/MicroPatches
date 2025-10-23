@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text.RegularExpressions;
 
 using HarmonyLib;
 
@@ -89,6 +88,7 @@ partial class Main
 
     static readonly Lazy<(Type t, PatchClassProcessor pc)[]> patchClasses = new(() =>
         AccessTools.GetTypesFromAssembly(Assembly.GetExecutingAssembly())
+            .Where(t =>t.GetCustomAttribute<HarmonyPatch>() is not null)
             .Select(t => (t, pc: HarmonyInstance!.CreateClassProcessor(t)))
             .Where(tuple => tuple.pc.HasPatchAttribute())
             .ToArray());
