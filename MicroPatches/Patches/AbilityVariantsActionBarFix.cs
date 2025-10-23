@@ -13,7 +13,7 @@ using UnityEngine.UI;
 
 namespace MicroPatches.Patches;
 
-[MicroPatch("Fix missing Ability Variants action bar", Optional = false)]
+[MicroPatch("Fix missing Ability Variants action bar", Optional = true)]
 [HarmonyPatch]
 internal static class AbilityVariantsActionBarFix
 {
@@ -31,7 +31,8 @@ internal static class AbilityVariantsActionBarFix
         {
             using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(n);
             using var reader = new BinaryReader(stream);
-            var texture = new Texture2D(0, 0, TextureFormat.RGBA32, false);
+            // Use the actual image size because apparently 0x0 is invalid now
+            var texture = new Texture2D(76, 56, TextureFormat.RGBA32, false);
             texture.LoadImage(reader.ReadBytes((int)stream.Length));
             texture.Apply();
             var sprite = Sprite.Create(texture, new(0, 0, texture.width, texture.height), new(0.5f, 0.5f));
