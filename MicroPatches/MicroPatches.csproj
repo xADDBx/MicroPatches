@@ -19,7 +19,7 @@
   
   <ItemGroup>
     <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3" IncludeAssets="compile; build; contentfiles; analyzers; buildtransitive" PrivateAssets="all" />
-    <PackageReference Include="Lib.Harmony" Version="2.4.1" />
+    <PackageReference Include="Lib.Harmony.Ref" Version="2.4.1" />
     <PackageReference Include="MicroUtils.HarmonyAnalyzers" Version="1.6.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -51,7 +51,7 @@
     <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\BundlesBaseTypes.dll*" Publicize="true" Private="false" />
 		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\UnityEngine.*.dll" Private="false" />
 		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Unity.*.dll" Private="false" />
-		<!--<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\0Harmony.dll*" Private="false" />-->
+		<!--<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\0Harmony.dll" Private="false" />-->
   </ItemGroup>
 
   <ItemGroup>
