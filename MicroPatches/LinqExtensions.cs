@@ -71,13 +71,13 @@ public static class LinqExtensions
     /// </summary>
     public static IEnumerable<T> DistinctBy<T, U>(this IEnumerable<T> seq, Func<T, U> selector, IEqualityComparer<U> comparer)
     {
-        var distinct = new List<U>();
+        var distinct = new HashSet<U>(comparer);
 
         foreach (var item in seq)
         {
             var selected = selector(item);
 
-            if (!distinct.Contains(selected, comparer))
+            if (!distinct.Contains(selected))
             {
                 distinct.Add(selected);
                 yield return item;
@@ -108,7 +108,21 @@ public static class LinqExtensions
     /// <summary>
     /// Selects distinct elements from a sequence, first applying a selector function and using the default equality comparer
     /// </summary>
-    public static IEnumerable<T> DistinctBy<T, U>(this IEnumerable<T> seq, Func<T, U> selector) => DistinctBy(seq, selector, EqualityComparer<U>.Default);
+    public static IEnumerable<T> DistinctBy<T, U>(this IEnumerable<T> seq, Func<T, U> selector)
+    {
+        var distinct = new HashSet<U>();
+
+        foreach (var item in seq)
+        {
+            var selected = selector(item);
+
+            if (!distinct.Contains(selected))
+            {
+                distinct.Add(selected);
+                yield return item;
+            }
+        }
+    }
 
     public static IEnumerable<(T, T)> Pairwise<T>(this IEnumerable<T> source)
     {

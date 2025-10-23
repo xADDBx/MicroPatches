@@ -130,13 +130,16 @@ partial class Main
 
     void RunPatches()
     {
-        var enabledPatches = Patches.Where(p => p.IsEnabled());
-
-        RunPatches(enabledPatches.Where(p => !p.IsExperimental));
 
 #if DEBUG
         var harmonyDebug = Harmony.DEBUG;
 #endif
+
+        //Harmony.DEBUG = true;
+
+        var enabledPatches = Patches.Where(p => p.IsEnabled());
+
+        RunPatches(enabledPatches.Where(p => !p.IsExperimental));
 
         Logger!.Log("Running experimental patches");
         try

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
-using System.Text;
 
 using HarmonyLib;
 
@@ -88,7 +87,7 @@ namespace MicroPatches
 
         void PrePatchTests()
         {
-#if DEBUG
+#if false
             //var fieldName = nameof(BlueprintFeature.m_Icon).Split(['.'], StringSplitOptions.None);
             //Logger.Log($"FieldName: {fieldName.First()}");
             //var field = typeof(BlueprintFeature).GetField(fieldName.First(), BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
