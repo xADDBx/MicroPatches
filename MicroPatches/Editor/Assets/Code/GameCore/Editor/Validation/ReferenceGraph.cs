@@ -161,15 +161,15 @@ namespace Kingmaker.Editor.Validation
         #region MicroPatches
         //static ReferenceGraph()
         //{
-        //    BlueprintsDatabase.OnPreSave +=  Graph.CleanReferencesInBlueprintWithId;
-        //    BlueprintsDatabase.OnSavedId += Graph.ParseFileWithId;
-        //   IsReferenceTrackingSuppressed = EditorPreferences.Instance.SuppressReferenceTracking;
+        //    BlueprintsDatabase.OnPreSave += id => Graph?.CleanReferencesInBlueprintWithId(id);
+        //    BlueprintsDatabase.OnSavedId += id => Graph?.ParseFileWithId(id);
+        //    IsReferenceTrackingSuppressed = EditorPreferences.Instance.SuppressReferenceTracking;
         //}
 
         static ReferenceGraph()
         {
-	        BlueprintsDatabase.OnPreSave += id => Graph?.CleanReferencesInBlueprintWithId(id);
-	        BlueprintsDatabase.OnSavedId += id => Graph?.ParseFileWithId(id);
+            BlueprintsDatabase.OnPreSave += id => Graph?.CleanReferencesInBlueprintWithId(id);
+            BlueprintsDatabase.OnSavedId += id => Graph?.ParseFileWithId(id);
             IsReferenceTrackingSuppressed = EditorPreferences.Instance.SuppressReferenceTracking;
         }
 
@@ -183,6 +183,13 @@ namespace Kingmaker.Editor.Validation
             }
         }
         #endregion
+
+        //static ReferenceGraph()
+        //{
+	    //    BlueprintsDatabase.OnPreSave +=  Graph.CleanReferencesInBlueprintWithId;
+	    //    BlueprintsDatabase.OnSavedId += Graph.ParseFileWithId;
+        //    IsReferenceTrackingSuppressed = EditorPreferences.Instance.SuppressReferenceTracking;
+        //}
 
         public static ReferenceGraph Graph
         {

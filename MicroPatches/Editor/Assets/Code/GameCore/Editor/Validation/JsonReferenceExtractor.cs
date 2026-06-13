@@ -22,11 +22,8 @@ namespace Kingmaker.Editor.Validation
 
         public void ParseFile(string path, Action onAssetParsed, bool checkWeakResourceLinks)
         {
-            #region Micropatches
-			var longPath = @"\\?\" + Path.GetFullPath(path);
-			var jo = JObject.Parse(File.ReadAllText(longPath));
-			//var jo = JObject.Parse(File.ReadAllText(path));
-			#endregion
+            var longPath = @"\\?\" + Path.GetFullPath(path);
+            var jo = JObject.Parse(File.ReadAllText(longPath));
             var root = (JObject)jo["Data"];
             m_ScriptGuid = root["$type"].Value<string>();
             m_ScriptGuid = m_ScriptGuid.Substring(0, 32); // value is <guid>, <typename> - cut that last part

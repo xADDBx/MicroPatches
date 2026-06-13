@@ -15,14 +15,11 @@ using RectEx;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-#region MicroPatches
 using Kingmaker.Blueprints.Base;
 
 namespace Kingmaker.Editor.Blueprints
 {
-	//[CustomPropertyDrawer(typeof(BlueprintReference<>), true)]
 	[CustomPropertyDrawer(typeof(IReferenceBase), true)]
-#endregion
 	public class BlueprintReferenceDrawer : PropertyDrawer
 	{
 		public override VisualElement CreatePropertyGUI(SerializedProperty property)

@@ -114,7 +114,7 @@ namespace Assets.Editor
         public static void Ping(SimpleBlueprint bp)
         {
             #region MicroPatches
-            if (bp==null || Event.current == null)
+            if (bp == null || Event.current == null)
                 return;
 
             if (Event.current.control)

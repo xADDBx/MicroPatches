@@ -36,9 +36,9 @@ namespace Kingmaker.Editor.Blueprints
                     currentValue = link.Load();
                 }
             }
-			#endregion
+            #endregion
 
-			Action<Object> pickCallback = o =>
+            Action<Object> pickCallback = o =>
 				{
 					var p = idPropertySafe.Property;
 					using (GuiScopes.UpdateObject(p.serializedObject))

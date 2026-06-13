@@ -24,7 +24,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="MicroWrath.Generator.Tasks" Version="0.10.0-prerelease-20240811-1424" IncludeAssets="build" />
+    <PackageReference Include="MicroWrath.Generator.Tasks" Version="0.10.0-*" IncludeAssets="build" />
   </ItemGroup>
 
   <ItemGroup>
@@ -106,6 +106,9 @@
       <TemplateFilesInclude Include="$(TemplatePath)\Assets\Editor\Build\Tasks\CheckAssetsValidity.cs" />
       <TemplateFilesInclude Include="$(TemplatePath)\Assets\Editor\Build\Tasks\CreateManifestAndSettings.cs" />
       <TemplateFilesInclude Include="$(TemplatePath)\Assets\Editor\Build\Tasks\ExtractBlueprintDirectReferences.cs" />
+      <TemplateFilesInclude Include="$(TemplatePath)\Assets\Code\GameCore\Editor\Blueprints\BlueprintReferenceDrawer.cs" />
+      <TemplateFilesInclude Include="$(TemplatePath)\Assets\Code\GameCore\Editor\Validation\JsonReferenceExtractor.cs" />
+      <TemplateFilesInclude Include="$(TemplatePath)\Assets\Editor\Build\ShaderPreprocessor.cs" />
       <TemplateFiles Include="@(TemplateFilesInclude)" />
       <TemplateFiles Remove="@(TemplateFilesExclude)" />
     </ItemGroup>
